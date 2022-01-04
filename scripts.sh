@@ -37,3 +37,10 @@ test-logs() {
 test-shell() {
   docker exec -it $CONTAINER_NAME sh
 }
+
+release() {
+  GIT_TAG=$(git describe --tags)
+  IMAGE_TAG=ulexxander/eclipse-mosquitto-ssh:$GIT_TAG
+  docker build -t $IMAGE_TAG .
+  docker push $IMAGE_TAG
+}
