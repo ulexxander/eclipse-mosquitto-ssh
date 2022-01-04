@@ -12,8 +12,8 @@ test-up() {
   docker run \
     --name $CONTAINER_NAME \
     -p $SSH_PORT:22 -d \
-    -v $PWD/test.mosquitto.conf:/mosquitto/config/mosquitto.conf \
-    eclipse-mosquitto-ssh
+    eclipse-mosquitto-ssh \
+    mosquitto -c /mosquitto-no-auth.conf
 }
 
 test-ssh() {
