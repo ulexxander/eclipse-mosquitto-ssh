@@ -2,6 +2,8 @@
 
 Extends https://github.com/eclipse/mosquitto Docker image, adds SSH daemon running in the background.
 
+[Docker Hub](https://hub.docker.com/r/ulexxander/eclipse-mosquitto-ssh)
+
 ## Features
 
 - Extends https://github.com/eclipse/mosquitto
