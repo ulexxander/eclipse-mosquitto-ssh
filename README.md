@@ -15,11 +15,11 @@ Extends https://github.com/eclipse/mosquitto Docker image, adds SSH daemon runni
 
 ```sh
 # Pull image
-docker pull ulexxander/eclipse-mosquitto-ssh:v1.0.0
+docker pull ulexxander/eclipse-mosquitto-ssh:v1.1.0
 
 # Run image, config is expected to be located in /mosquitto/config/mosquitto.conf
-docker run ulexxander/eclipse-mosquitto-ssh:v1.0.0
+docker run ulexxander/eclipse-mosquitto-ssh:v1.1.0
 
 # Override config path
-docker run ulexxander/eclipse-mosquitto-ssh:v1.0.0 mosquitto -c /mosquitto-no-auth.conf
+docker run ulexxander/eclipse-mosquitto-ssh:v1.1.0 mosquitto -c /mosquitto-no-auth.conf
 ```
