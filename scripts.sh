@@ -1,6 +1,6 @@
 CONTAINER_NAME=test-eclipse-mosquitto-ssh
-SSH_USERNAME=admin
-SSH_PASSWORD=admin
+export SSH_USERNAME=admin
+export SSH_PASSWORD=admin
 SSH_PORT=1882
 
 test-build() {
@@ -11,6 +11,8 @@ test-up() {
   echo "Running container $CONTAINER_NAME"
   docker run \
     --name $CONTAINER_NAME \
+    -e SSH_USERNAME \
+    -e SSH_PASSWORD \
     -p $SSH_PORT:22 -d \
     eclipse-mosquitto-ssh \
     mosquitto -c /mosquitto-no-auth.conf
