@@ -30,8 +30,30 @@ docker run \
   ulexxander/eclipse-mosquitto-ssh:v1.2.0 mosquitto -c /mosquitto-no-auth.conf
 
 # Initialize dynsec on startup as well
+# To actually use it do not forget to provide config which enables it
 docker run \
   -e "SSH_USERNAME=admin" -e "SSH_PASSWORD=123" \
   -e "DYNSEC_USERNAME=admin" -e "DYNSEC_PASSWORD=123" -e "DYNSEC_CONFIG_FILE=/mosquitto/config/dynamic-security.json" \
   ulexxander/eclipse-mosquitto-ssh:v1.2.0 mosquitto -c /mosquitto-no-auth.conf
+```
+
+### Docker Compose example
+
+```yml
+version: "3.8"
+
+services:
+  mosquitto:
+    image: ulexxander/eclipse-mosquitto-ssh:v1.2.0
+    ports:
+      - "1883:1883"
+      - "1882:22"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+    environment:
+      - SSH_USERNAME=admin
+      - SSH_PASSWORD=123
+      - DYNSEC_USERNAME=admin
+      - DYNSEC_PASSWORD=123
+      - DYNSEC_CONFIG_FILE=/mosquitto/config/dynamic-security.json
 ```
